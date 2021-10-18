@@ -10,8 +10,7 @@ use elos::println;
 #[no_mangle]
 pub extern "C" fn _start() -> ! {
     test_main();
-
-    loop {}
+    elos::hlt_loop();
 }
 
 #[panic_handler]

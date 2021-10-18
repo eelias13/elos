@@ -9,13 +9,15 @@ use elos::println;
 
 #[no_mangle]
 pub extern "C" fn _start() -> ! {
-    println!("Hello World{}", "!");
     elos::init();
 
     #[cfg(test)]
     test_main();
 
-    loop {}
+    println!("initialization complete");
+    println!("elos operational");
+
+    elos::hlt_loop();
 }
 
 /// This function is called on panic.
@@ -23,7 +25,7 @@ pub extern "C" fn _start() -> ! {
 #[panic_handler]
 fn panic(info: &PanicInfo) -> ! {
     println!("{}", info);
-    loop {}
+    elos::hlt_loop();
 }
 
 #[cfg(test)]
