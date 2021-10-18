@@ -53,7 +53,6 @@ pub struct Writer {
     buffer: &'static mut Buffer,
 }
 
-
 impl Writer {
     pub fn write_byte(&mut self, byte: u8) {
         match byte {
@@ -107,7 +106,6 @@ impl Writer {
                 // not part of printable ASCII range
                 _ => self.write_byte(0xfe),
             }
-
         }
     }
 }
@@ -120,7 +118,6 @@ impl fmt::Write for Writer {
         Ok(())
     }
 }
-
 
 use lazy_static::lazy_static;
 use spin::Mutex;
@@ -154,7 +151,6 @@ pub fn _print(args: fmt::Arguments) {
 fn test_println_simple() {
     println!("test_println_simple output");
 }
-
 
 #[test_case]
 fn test_println_many() {
